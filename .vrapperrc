@@ -1,0 +1,19 @@
+set number
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set wrapscan
+
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+set clipboard+=unnamed
+
+inoremap <C-h> <BACKSPACE>
+nnoremap <C-e> :nohlsearch<CR>
+vnoremap <C-e> <ESC>:nohlsearch<CR>gv
+vnoremap = :format<CR>:retab<CR>

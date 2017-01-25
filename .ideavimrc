@@ -1,0 +1,18 @@
+""Search
+set incsearch "Incremental search
+set hlsearch "Set highlight search word
+set wrapscan "If the search ends, goto the beginning
+set ignorecase "Disable smart case once
+set smartcase "Upper/Lower case letters discreminates
+
+set number
+set clipboard=unnamed
+
+map <C-i> :action ReformatCode<CR>
+
+imap <C-h> <BS>
+nmap <C-h> <BS>
+nmap <C-e> :nohlsearch<CR>
+vmap <C-e> <Esc>:nohlsearch<CR>gv
+
+vmap = :Format<CR>

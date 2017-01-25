@@ -1,0 +1,40 @@
+# java path settings
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export PATH=/usr/lib/jvm/java-7-oracle/bin:$PATH
+export CLASSPATH=.:/usr/lib/jvm/java-7-oracle/lib
+
+# android path settings
+export ANDROID_HOME=$HOME/Android/sdk
+export PATH=$HOME/Android/sdk/tools:$HOME/Android/sdk/platform-tools:$HOME/android-studio/bin:$PATH
+export NDK_ROOT=$HOME/Android/ndk
+
+# cocos2dx path settings
+export PATH=$HOME/cocos2d-x-3.2:$PATH
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=$HOME/cocos2d-x-3.2/cocos2d-x-3.2/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT=$HOME/Android/sdk
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+# Add environment variable ANT_ROOT for cocos2d-x
+export ANT_ROOT=$HOME/Android/sdk/tools/
+
+# Nvidia CUDA environment variable
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/lib/cudnn-6.5-linux-x64-v2:$LD_LIBRARY_PATH
+
+# Caffe (Deep Learning library) settings
+export CAFFE_ROOT=$HOME/Coding/DeepLearning/caffe
+
+# RL-glue
+export RLGLUE_ROOT=$HOME/Coding/RL-glue
+
+# ALE
+export ALE_ROOT=$HOME/Coding/DeepLearning/ale-0.5.1
+
+# Python settings
+export PYTHONPATH=$CAFFE_ROOT/python:$RLGLUE_ROOT/python-codec/src:$ALE_ROOT/ale_python_interface:$PYTHON_PATH

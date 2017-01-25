@@ -1,0 +1,9 @@
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+ PATH="$HOME/bin:$PATH"
+fi
+
+# load it local definitions
+if [ -f ~/.local_path ]; then
+    source ~/.local_path
+fi
