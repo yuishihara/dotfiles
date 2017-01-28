@@ -6,3 +6,8 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# load it local definitions
+if [ -f $HOME/.local_aliases ]; then
+    source $HOME/.local_aliases
+fi
