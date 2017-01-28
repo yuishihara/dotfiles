@@ -1,1 +1,0 @@
-/home/yishihara/dotfiles/.vim
