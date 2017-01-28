@@ -12,3 +12,9 @@ for file in ".path" ".aliases" ".exports" ".extra" ; do
  source "$HOME/$file"
 done;
 unset file;
+
+OS=$(uname)
+# Always load .bashrc on mac
+if [ $OS = "Darwin" ]; then
+    source $HOME/.bashrc
+fi
