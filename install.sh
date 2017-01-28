@@ -54,7 +54,7 @@ done
 
 function general_installation () {
 if [ -d ${DOTFILES_PATH} ]; then
-    echo "Dot files are alredy cloned"
+    echo "Dotfiles are alredy cloned"
 else
     echo "Cloning dotfiles from github"
     cd $HOME
