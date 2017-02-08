@@ -48,6 +48,12 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Rip-Rip/clang_complete'
 
+"GitHub flavored markdown
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+
 "Plugins without repositories
 if has("win32")
     NeoBundle 'fuenor/im_control.vim'
@@ -343,6 +349,16 @@ autocmd QuickFixCmdPost *grep* cwindow
 :nmap <silent> <C-c> <Plug>ToggleN
 
 "------------------------------------
+" Quick run setting
+"------------------------------------
+let g:quickrun_config = {
+\   'markdown': {
+\     'type': 'markdown/gfm',
+\     'outputter': 'browser'
+\   }
+\ }
+
+"------------------------------------
 "Gtags Setting
 "------------------------------------
 "let g:Gtags_Auto_Update = 1
@@ -546,3 +562,5 @@ highlight Pmenu guibg=#003000 "popup color
 highlight PmenuSel guibg=#006800 "popup color
 highlight PmenuSbar guibg=#001800 "popup color
 highlight PmenuThumb guifg=#006000 "popup color
+
+
