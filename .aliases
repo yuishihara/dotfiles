@@ -7,6 +7,15 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# Git aliases
+alias gitfp='git fetch -p'
+alias gitf='git fetch'
+alias gits='git status'
+alias gitl='git log'
+alias gitlp='git log --pretty=oneline'
+alias gitc='git checkout'
+alias gita='git add'
+
 # load it local definitions
 if [ -f $HOME/.local_aliases ]; then
     source $HOME/.local_aliases
