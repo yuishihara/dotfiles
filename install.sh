@@ -72,6 +72,12 @@ if ! [ -e ${BUNDLE_PATH} ]; then
         $(git clone https://github.com/Shougo/neobundle.vim.git)
     fi
 fi
+
+PYENV_PATH=${HOME}/.pyenv
+if ! [ -e ${PYENV_PATH} ]; then
+    cd ${HOME}
+    $(git clone https://github.com/yyuu/pyenv.git ${HOME}/.pyenv)
+fi
 }
 
 function linux_installation () {
