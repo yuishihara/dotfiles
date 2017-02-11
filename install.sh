@@ -76,7 +76,10 @@ fi
 PYENV_PATH=${HOME}/.pyenv
 if ! [ -e ${PYENV_PATH} ]; then
     cd ${HOME}
-    $(git clone https://github.com/yyuu/pyenv.git ${HOME}/.pyenv)
+    $(git clone https://github.com/yyuu/pyenv.git ${PYENV_PATH})
+    $(${PYENV_PATH}/bin/pyenv install anaconda3-4.3.0)
+    $(${PYENV_PATH}/bin/pyenv rehash)
+    $(${PYENV_PATH}/bin/pyenv global anaconda3-4.3.0)
 fi
 }
 
