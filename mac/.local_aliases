@@ -1,1 +1,5 @@
 alias ls='ls -G'
+
+# Anaconda activate/deactivate aliases
+alias activate='source ${PYENV_ROOT}/versions/anaconda3-4.3.0/bin/activate'
+alias deactivate='source ${PYENV_ROOT}/versions/anaconda3-4.3.0/bin/deactivate'
