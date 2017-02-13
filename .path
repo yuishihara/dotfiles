@@ -3,6 +3,8 @@ if [ -d "$HOME/bin" ] ; then
  PATH="$HOME/bin:$PATH"
 fi
 
+export PATH=$PYENV_ROOT/bin:$PATH
+
 # load it local definitions
 if [ -f ~/.local_path ]; then
     source ~/.local_path
