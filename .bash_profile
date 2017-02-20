@@ -8,7 +8,7 @@ fi
 # .aliases for adding command aliases
 # .exports for exporting settings
 # .extra for additional settings
-for file in ".path" ".aliases" ".exports" ".extra" ; do
+for file in ".exports" ".path" ".aliases" ".extra" ; do
  source "$HOME/$file"
 done;
 unset file;
