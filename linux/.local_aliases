@@ -1,1 +1,4 @@
 alias ls='ls --color=auto'
+
+alias activate='source $PYENV_ROOT/versions/anaconda3-4.2.0/bin/activate'
+alias deactivate='source $PYENV_ROOT/versions/anaconda3-4.2.0/bin/deactivate'
