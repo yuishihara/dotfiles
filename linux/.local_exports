@@ -1,7 +1,10 @@
 # java path settings
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
-export PATH=/usr/lib/jvm/java-7-oracle/bin:$PATH
-export CLASSPATH=.:/usr/lib/jvm/java-7-oracle/lib
+#export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+#export PATH=/usr/lib/jvm/java-7-oracle/bin:$PATH
+#export CLASSPATH=.:/usr/lib/jvm/java-7-oracle/lib
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export PATH=/usr/lib/jvm/java-8-oracle/bin:$JAVA_HOME:$PATH
+export CLASSPATH=.:/usr/lib/jvm/java-8-oracle/lib
 
 # android path settings
 export ANDROID_HOME=$HOME/Android/sdk
@@ -38,3 +41,10 @@ export ALE_ROOT=$HOME/Coding/DeepLearning/ale-0.5.1
 
 # Python settings
 export PYTHONPATH=$CAFFE_ROOT/python:$RLGLUE_ROOT/python-codec/src:$ALE_ROOT/ale_python_interface:$PYTHON_PATH
+
+# Pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
+# travis
+export PATH=/var/lib/gems/1.9.1/gems/travis-1.8.6/bin/:$PATH
