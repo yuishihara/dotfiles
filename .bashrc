@@ -30,3 +30,5 @@ unset file;
 source $HOME/dotfiles/.bash_prompt_color.sh
 source $HOME/dotfiles/.git-prompt.sh
 PS1="\[$Red\]\t\[$White\]-\[$Blue\]\u\[$Yellow\]\[$Yellow\]\w\[\033[m\]\[$White\]\$(__git_ps1)\[$White\]\n\$ "
+
+source $HOME/.local_bashrc
