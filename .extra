@@ -1,5 +1,3 @@
-eval "$(pyenv init -)"
-
 # load it local definitions
 if [ -f ~/.local_extra ]; then
     source ~/.local_extra
