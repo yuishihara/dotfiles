@@ -15,6 +15,7 @@ alias gitl='git log'
 alias gitlp='git log --pretty=oneline'
 alias gitc='git checkout'
 alias gita='git add'
+alias gitda='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 # load it local definitions
 if [ -f $HOME/.local_aliases ]; then
