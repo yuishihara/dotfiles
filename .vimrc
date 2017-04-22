@@ -54,6 +54,9 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 
+"Octave
+NeoBundle 'vim-scripts/octave.vim--'
+
 "Plugins without repositories
 if has("win32")
     NeoBundle 'fuenor/im_control.vim'
