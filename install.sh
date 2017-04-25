@@ -47,8 +47,13 @@ for file in .??*; do
     if should_exclude ${file} ; then
         continue
     fi
-    echo "making symbolic link: ${HOME}/${file} -> $1/${file}"
-    ln -si $1/${file} ${HOME}/${file}
+    TARGET_FILE=${HOME}/${file}
+    if [ -e ${TARGET_FILE} ] ; then
+        echo "Symbolik link: ${TARGET_FILE} already exists"
+        continue
+    fi
+    echo "making symbolic link: ${TARGET_FILE} -> $1/${file}"
+    ln -si $1/${file} ${TARGET_FILE}
 done
 }
 
