@@ -1,1 +1,12 @@
+export PATH=$PATH:$HOME/Android/Ndk
+export PATH=$PATH:$HOME/Android/Sdk/build-tools/23.0.2
+export PATH=$PATH:$HOME/Android/Sdk/platform-tools
+#export PATH=$HOME/Android/android-toolchain/arm/bin:$PATH
+#export PATH=$HOME/Android/android-toolchain/arm64/bin:$PATH
+export PATH=$PATH:/usr/local/cuda/bin
 
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+export PYTHONPATH=$HOME/yishihara/DeepLearning/ale-0.5.1/ale_python_interface:$PYTHONPATH
+
+export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_65
