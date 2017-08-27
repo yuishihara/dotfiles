@@ -1,6 +1,9 @@
 # For ROS initialization
 ROS_VERSION=indigo
-source /opt/ros/${ROS_VERSION}/setup.bash
+ROS_SETUP_FILE=/opt/ros/${ROS_VERSION}/setup.bash
+if [ ! -f ${ROS_FILE} ]; then
+    source ${ROS_SETUP_FILE}
+fi
 
 # init pyenv
 eval "$(pyenv init -)"
