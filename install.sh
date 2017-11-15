@@ -20,6 +20,9 @@ case $(uname) in
         OS=mac
         ;;
 esac
+PECO_DIRECTORY_NAME=peco_linux_386
+PECO_ARCHIVE_NAME=${PECO_DIRECTORY_NAME}.tar.gz
+PECO_LINUX_DOWNLOAD_URL=https://github.com/peco/peco/releases/download/v0.5.1/${PECO_ARCHIVE_NAME}
 # End variable definitions
 
 function command_exists () {
@@ -86,10 +89,34 @@ if ! [ -e ${PYENV_PATH} ]; then
     $(${PYENV_PATH}/bin/pyenv rehash)
     $(${PYENV_PATH}/bin/pyenv global anaconda3-4.3.0)
 fi
+
+if ! $(command_exists adb-peco) ; then
+    printf "sudo password: "
+    read -s password
+    echo "Installing adb-peco"
+    echo ${password} | $(sudo -S gem install adb-peco)
+fi
+
+BASH_COMPLETION_DIR_PATH=${HOME}/bash_completion.d
+GRADLE_BASH_COMPLETION_PATH=${BASH_COMPLETION_DIR_PATH}/gradle-tab-completion.bash
+if ! [ -e ${GRADLE_BASH_COMPLETION_PATH} ] ; then
+    mkdir -p ${BASH_COMPLETION_DIR_PATH}
+    $(curl -LA gradle-completion https://edub.me/gradle-completion-bash -o ${GRADLE_BASH_COMPLETION_PATH})
+fi
 }
 
 function linux_installation () {
 link_all ${DOTFILES_PATH}/${OS}
+if ! $(command_exists peco) ; then
+    cd ${HOME}
+    echo "Downloading peco..."
+    $(wget ${PECO_LINUX_DOWNLOAD_URL})
+    echo "Installing peco..."
+    $(tar xzvf ${PECO_ARCHIVE_NAME})
+    cd ${HOME}/${PECO_DIRECTORY_NAME}
+    mv peco ${HOME}/bin
+    chmod +x ${HOME}/bin/peco
+fi
 }
 
 function mac_installation () {
@@ -100,9 +127,17 @@ fi
 if [ ! -f /usr/local/etc/bash_completion ]; then
     $(brew install bash_completion)
 fi
-echo "installing homebrew"
+if ! $(command_exists peco) ; then
+    echo "installing peco"
+    $(brew install peco)
+    echo "finish installing peco"
+fi
 link_all ${DOTFILES_PATH}/${OS}
 }
+
+if ! $(command_exists gem) ; then
+    echo "Please install gem before proceeding installation"
+fi
 
 # Check git installed
 if ! $(command_exists git) ; then

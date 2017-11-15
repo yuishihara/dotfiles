@@ -26,7 +26,7 @@ done;
 unset file;
 
 # Gradle completion
-source $HOME/gradle-tab-completion.bash
+source $HOME/bash_completion.d/gradle-tab-completion.bash
 
 # shell prompt setting
 # Customize shell prompt
