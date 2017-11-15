@@ -20,8 +20,9 @@ alias gitrm='git rm $(git ls-files --deleted)'
 
 # Adb peco
 alias adbp='adb-peco'
-alias uninstallapp='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
+alias uninstallapp='adbp shell pm list package | sed -e s/package:// | peco | xargs adb uninstall'
 alias installapp='find ./ -name *.apk | peco | xargs adb install -r'
+alias restartadb='adb kill-server; adb start-server'
 
 # load it local definitions
 if [ -f $HOME/.local_aliases ]; then
