@@ -25,6 +25,9 @@ for file in  ".exports" ".path" ".aliases" ".extra" ; do
 done;
 unset file;
 
+# Gradle completion
+source $HOME/gradle-tab-completion.bash
+
 # shell prompt setting
 # Customize shell prompt
 source $HOME/dotfiles/.bash_prompt_color.sh

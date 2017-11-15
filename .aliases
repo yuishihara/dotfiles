@@ -18,6 +18,11 @@ alias gita='git add'
 alias gitda='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gitrm='git rm $(git ls-files --deleted)'
 
+# Adb peco
+alias adbp='adb-peco'
+alias uninstallapp='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
+alias installapp='find ./ -name *.apk | peco | xargs adb install -r'
+
 # load it local definitions
 if [ -f $HOME/.local_aliases ]; then
     source $HOME/.local_aliases
