@@ -20,6 +20,7 @@ case $(uname) in
         OS=mac
         ;;
 esac
+LOCAL_BIN_PATH=${HOME}/bin
 PECO_DIRECTORY_NAME=peco_linux_386
 PECO_ARCHIVE_NAME=${PECO_DIRECTORY_NAME}.tar.gz
 PECO_LINUX_DOWNLOAD_URL=https://github.com/peco/peco/releases/download/v0.5.1/${PECO_ARCHIVE_NAME}
@@ -106,6 +107,9 @@ fi
 }
 
 function linux_installation () {
+if ! [ -e ${LOCAL_BIN_PATH} ] ; then
+    mkdir -p ${LOCAL_BIN_PATH}
+fi
 link_all ${DOTFILES_PATH}/${OS}
 if ! $(command_exists peco) ; then
     cd ${HOME}
@@ -117,6 +121,8 @@ if ! $(command_exists peco) ; then
     mv peco ${HOME}/bin
     chmod +x ${HOME}/bin/peco
 fi
+# Change gtk key binds to emacs
+gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 }
 
 function mac_installation () {
