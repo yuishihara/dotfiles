@@ -1,6 +1,6 @@
 ## How to use
 ### Unix like environment
-curl https://raw.githubusercontent.com/yuishihara/dotfiles/master/install.sh | bash
+bash <(curl https://raw.githubusercontent.com/yuishihara/dotfiles/master/install.sh)
 
 ### Windows like environment
 Download https://raw.githubusercontent.com/yuishihara/dotfiles/master/install.bat and run batch file
