@@ -21,6 +21,7 @@ case $(uname) in
         ;;
 esac
 LOCAL_BIN_PATH=${HOME}/bin
+SCRIPT_FILES_PATH=${DOTFILES_PATH}/scripts
 PECO_DIRECTORY_NAME=peco_linux_386
 PECO_ARCHIVE_NAME=${PECO_DIRECTORY_NAME}.tar.gz
 PECO_LINUX_DOWNLOAD_URL=https://github.com/peco/peco/releases/download/v0.5.1/${PECO_ARCHIVE_NAME}
@@ -46,12 +47,35 @@ return 1
 }
 
 function link_all () {
+FILES="$1/*"
+TARGET_DIRECTORY="$2"
+if [ "$1" == "" ]; then
+    echo "Base directory not specified"
+fi
+if [ "$2" == "" ]; then
+    echo "Target directory not specified"
+fi
+cd $1
+for file in ${FILES}; do
+    file=$(basename ${file})
+    TARGET_FILE=${TARGET_DIRECTORY}/${file}
+    if [ -e ${TARGET_FILE} ] ; then
+        echo "Symbolik link: ${TARGET_FILE} already exists"
+        continue
+    fi
+    echo "making symbolic link: ${TARGET_FILE} -> $1/${file}"
+    ln -si $1/${file} ${TARGET_FILE}
+done
+}
+
+function link_all_dotfiles () {
+TARGET_DIRECTORY=${HOME}
 cd $1
 for file in .??*; do
     if should_exclude ${file} ; then
         continue
     fi
-    TARGET_FILE=${HOME}/${file}
+    TARGET_FILE=${TARGET_DIRECTORY}/${file}
     if [ -e ${TARGET_FILE} ] ; then
         echo "Symbolik link: ${TARGET_FILE} already exists"
         continue
@@ -70,7 +94,7 @@ else
     $(git clone https://github.com/yuishihara/dotfiles.git)
 fi
 
-link_all ${DOTFILES_PATH}
+link_all_dotfiles ${DOTFILES_PATH}
 BUNDLE_PATH=${HOME}/.vim/bundle
 NEOBUNDLE_PATH=${BUNDLE_PATH}/neobundle.vim
 if ! [ -e ${BUNDLE_PATH} ]; then
@@ -104,13 +128,15 @@ if ! [ -e ${GRADLE_BASH_COMPLETION_PATH} ] ; then
     mkdir -p ${BASH_COMPLETION_DIR_PATH}
     $(curl -LA gradle-completion https://edub.me/gradle-completion-bash -o ${GRADLE_BASH_COMPLETION_PATH})
 fi
+
+link_all ${SCRIPT_FILES_PATH} ${LOCAL_BIN_PATH}
 }
 
 function linux_installation () {
 if ! [ -e ${LOCAL_BIN_PATH} ] ; then
     mkdir -p ${LOCAL_BIN_PATH}
 fi
-link_all ${DOTFILES_PATH}/${OS}
+link_all_dotfiles ${DOTFILES_PATH}/${OS}
 if ! $(command_exists peco) ; then
     cd ${HOME}
     echo "Downloading peco..."
@@ -138,7 +164,7 @@ if ! $(command_exists peco) ; then
     $(brew install peco)
     echo "finish installing peco"
 fi
-link_all ${DOTFILES_PATH}/${OS}
+link_all_dotfiles ${DOTFILES_PATH}/${OS}
 }
 
 if ! $(command_exists gem) ; then
