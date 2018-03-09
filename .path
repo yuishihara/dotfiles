@@ -5,6 +5,9 @@ fi
 
 export PATH=$PYENV_ROOT/bin:$PATH
 
+# Rust compilers
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # load it local definitions
 if [ -f ~/.local_path ]; then
     source ~/.local_path
