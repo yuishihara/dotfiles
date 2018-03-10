@@ -57,6 +57,9 @@ NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 "Octave
 NeoBundle 'vim-scripts/octave.vim--'
 
+"Rust
+NeoBundle 'rust-lang/rust.vim'
+
 "Plugins without repositories
 if has("win32")
     NeoBundle 'fuenor/im_control.vim'
@@ -223,7 +226,7 @@ set expandtab "Use space instead of inserting Tab
 set softtabstop=4 "When inserting tab it is same as 4 spaces
 
 "For source codes
-autocmd FileType c,cpp,cs,java,gradle,aidl,xml,html,sh set shiftwidth=4 softtabstop=4 tabstop=4 expandtab cindent "Use C-style indent
+autocmd FileType c,cpp,cs,java,gradle,aidl,xml,html,sh,rs set shiftwidth=4 softtabstop=4 tabstop=4 expandtab cindent "Use C-style indent
 autocmd FileType python,py set smartindent shiftwidth=2 softtabstop=2 tabstop=2 expandtab smarttab cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType vim set shiftwidth=2 softtabstop=2 tabstop=2 expandtab cindent
 
@@ -473,6 +476,11 @@ endif
 let g:clang_user_options = '-std=c++11'
 
 "------------------------------------
+" syntastic settings
+"------------------------------------
+let g:syntastic_rust_checkers = ['rustc']
+
+"------------------------------------
 " vim-indent-guides setting
 "------------------------------------
 "let g:indent_guides_enable_on_vim_startup=1
@@ -565,5 +573,3 @@ highlight Pmenu guibg=#003000 "popup color
 highlight PmenuSel guibg=#006800 "popup color
 highlight PmenuSbar guibg=#001800 "popup color
 highlight PmenuThumb guifg=#006000 "popup color
-
-
