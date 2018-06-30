@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pbpaste | highlight --syntax=py -O rtf | pbcopy
