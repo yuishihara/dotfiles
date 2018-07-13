@@ -3,4 +3,4 @@ alias ls='ls --color=auto'
 alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2"
 
 alias activate='source $PYENV_ROOT/versions/anaconda3-4.3.0/bin/activate'
-alias deactivate='source $PYENV_ROOT/versions/anaconda3-4.3.0/bin/activate'
+alias deactivate='source $PYENV_ROOT/versions/anaconda3-4.3.0/bin/deactivate'
