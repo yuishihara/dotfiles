@@ -147,6 +147,7 @@ if ! $(command_exists peco) ; then
     mv peco ${HOME}/bin
     chmod +x ${HOME}/bin/peco
 fi
+install_tex
 # Change gtk key binds to emacs
 gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 }
