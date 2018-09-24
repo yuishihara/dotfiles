@@ -17,6 +17,7 @@ alias gitc='git checkout'
 alias gita='git add'
 alias gitda='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gitrm='git rm $(git ls-files --deleted)'
+alias gitga='gitgrepadd'
 
 # Adb peco
 alias adbp='adb-peco'
