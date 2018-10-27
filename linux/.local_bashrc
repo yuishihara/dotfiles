@@ -4,7 +4,10 @@ ROS_SETUP_FILE=/opt/ros/${ROS_VERSION}/setup.bash
 if [ ! -f ${ROS_SETUP_FILE} ]; then
     source ${ROS_SETUP_FILE}
 fi
-source ${HOME}/ROS/catkin_ws/devel/setup.bash
+CATKIN_SETUP_FILE=${HOME}/ROS/catkin_ws/devel/setup.bash
+if [ ! -f ${CATKIN_SETUP_FILE} ]; then
+    source ${CATKIN_SETUP_FILE}
+fi
 
 # init pyenv
 eval "$(pyenv init -)"
