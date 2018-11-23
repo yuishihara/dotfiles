@@ -1,6 +1,13 @@
 alias ls='ls --color=auto'
 
-alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2"
-
 alias activate='source $PYENV_ROOT/versions/anaconda3-4.3.0/bin/activate'
 alias deactivate='source $PYENV_ROOT/versions/anaconda3-4.3.0/bin/deactivate'
+
+# HSR setting
+alias sim_mode='export ROS_MASTER_URI=http://localhost:11311 export PS1="\[\033[44;1;37m\]<local>\[\033[0m\]\w$ "'
+alias hsrb_mode='export ROS_MASTER_URI=http://hsrb.local:11311 export PS1="\[\033[41;1;37m\]<hsrb>\[\033[0m\]\w$ "'
+
+# ROS
+CATKIN_HOME=${HOME}/ROS/catkin_ws
+alias catkin_make="catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python2"
+alias cm="cd ${CATKIN_HOME} && catkin_make && cd -"
