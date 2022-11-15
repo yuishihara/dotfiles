@@ -18,3 +18,4 @@ OS=$(uname)
 if [ $OS = "Darwin" ]; then
     source $HOME/.bashrc
 fi
+
