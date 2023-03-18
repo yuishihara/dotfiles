@@ -7,6 +7,4 @@ export PATH=$PATH:/usr/local/cuda/bin
 
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
-export PYTHONPATH=$HOME/yishihara/DeepLearning/ale-0.5.1/ale_python_interface:$PYTHONPATH
-
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_65

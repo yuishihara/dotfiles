@@ -22,9 +22,6 @@ case $(uname) in
 esac
 LOCAL_BIN_PATH=${HOME}/bin
 SCRIPT_FILES_PATH=${DOTFILES_PATH}/scripts
-PECO_DIRECTORY_NAME=peco_linux_386
-PECO_ARCHIVE_NAME=${PECO_DIRECTORY_NAME}.tar.gz
-PECO_LINUX_DOWNLOAD_URL=https://github.com/peco/peco/releases/download/v0.5.1/${PECO_ARCHIVE_NAME}
 # End variable definitions
 
 function command_exists () {
@@ -110,16 +107,6 @@ PYENV_PATH=${HOME}/.pyenv
 if ! [ -e ${PYENV_PATH} ]; then
     cd ${HOME}
     $(git clone https://github.com/yyuu/pyenv.git ${PYENV_PATH})
-    $(${PYENV_PATH}/bin/pyenv install anaconda3-4.3.0)
-    $(${PYENV_PATH}/bin/pyenv rehash)
-    $(${PYENV_PATH}/bin/pyenv global anaconda3-4.3.0)
-fi
-
-if ! $(command_exists adb-peco) ; then
-    printf "sudo password: "
-    read -s password
-    echo "Installing adb-peco"
-    echo ${password} | $(sudo -S gem install adb-peco)
 fi
 
 BASH_COMPLETION_DIR_PATH=${HOME}/bash_completion.d
@@ -137,16 +124,7 @@ if ! [ -e ${LOCAL_BIN_PATH} ] ; then
     mkdir -p ${LOCAL_BIN_PATH}
 fi
 link_all_dotfiles ${DOTFILES_PATH}/${OS}
-if ! $(command_exists peco) ; then
-    cd ${HOME}
-    echo "Downloading peco..."
-    $(wget ${PECO_LINUX_DOWNLOAD_URL})
-    echo "Installing peco..."
-    $(tar xzvf ${PECO_ARCHIVE_NAME})
-    cd ${HOME}/${PECO_DIRECTORY_NAME}
-    mv peco ${HOME}/bin
-    chmod +x ${HOME}/bin/peco
-fi
+
 install_tex
 # Change gtk key binds to emacs
 gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
@@ -159,11 +137,6 @@ if ! $(command_exists brew) ; then
 fi
 if [ ! -f /usr/local/etc/bash_completion ]; then
     $(brew install bash_completion)
-fi
-if ! $(command_exists peco) ; then
-    echo "installing peco"
-    $(brew install peco)
-    echo "finish installing peco"
 fi
 link_all_dotfiles ${DOTFILES_PATH}/${OS}
 }

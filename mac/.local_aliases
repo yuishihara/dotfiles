@@ -1,9 +1,5 @@
 alias ls='ls -G'
 
-# Anaconda activate/deactivate aliases
-# alias activate='source ${PYENV_ROOT}/versions/anaconda3-4.3.0/bin/activate'
-# alias deactivate='source ${PYENV_ROOT}/versions/anaconda3-4.3.0/bin/deactivate'
-
 alias venvc='python -m venv .venv'
 alias venva='source .venv/bin/activate'
 alias venvd='deactivate'
